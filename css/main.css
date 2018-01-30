@@ -1,3 +1,14 @@
+html, body {
+  height: 100%;
+  min-height: 100%; }
 
+.pageWrapper {
+  min-height: calc(100% - 75px); }
+
+footer {
+  height: 75px;
+  width: 100%;
+  background-color: green;
+  color: white; }
 
 /*# sourceMappingURL=main.css.map */

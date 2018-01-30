@@ -1,0 +1,17 @@
+$footerHeight: 75px;
+
+html, body {
+    height: 100%;
+    min-height: 100%
+}
+
+.pageWrapper {
+    min-height: calc(100% - #{$footerHeight});
+}
+
+footer {
+    height: $footerHeight;
+    width: 100%;
+    background-color: green;
+    color: white;
+}
