@@ -8,5 +8,8 @@
 
     .card {
         width: 30%;
+        &:hover {
+            background-color: grey
+        }
     }
 }
