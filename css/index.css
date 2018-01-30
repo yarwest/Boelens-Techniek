@@ -1,0 +1,12 @@
+.cardContainer {
+  display: flex;
+  width: 95%;
+  margin: auto;
+  justify-content: space-evenly;
+  align-items: center;
+  align-content: center; }
+  .cardContainer .card {
+    width: 30%;
+    height: 475px; }
+
+/*# sourceMappingURL=index.css.map */
