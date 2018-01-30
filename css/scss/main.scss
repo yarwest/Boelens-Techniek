@@ -12,6 +12,13 @@ html, body {
 footer {
     height: $footerHeight;
     width: 100%;
-    background-color: green;
-    color: white;
+    background-color: #0066ff;
+    color: black;
+    padding-top: 20px;
+    a {
+        color: #001a4d;
+    }
+    a:hover {
+        color: #002b80;
+    }
 }
