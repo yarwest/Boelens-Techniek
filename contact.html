@@ -1,45 +1,53 @@
 <head>
     <title>Boelens Techniek Apeldoorn - Contact</title>
+    <link rel="stylesheet" href="lib/bootstrap.min.css">
+    <link rel="stylesheet" href="css/main.css">
 </head>
 <body>
-    <h1>Contact</h1>
+    <div class="pageWrapper">
+        <h1>Contact</h1>
 
-    <h2>Contact gegevens</h2>
-    <h3>Fred Boelens</h3>
-    <h4>Boelens Techniek Apeldoorn</h4>
-    <p>Voltairestraat 28</p>
-    <p>7323GL Apeldoorn</p>
-    <p>tel: 06 40495538</p>
-    <p>fax: 0847519566</p>
-    <p>email: info@boelens-techniek.nl</p>
+        <h2>Contact gegevens</h2>
+        <h3>Fred Boelens</h3>
+        <h4>Boelens Techniek Apeldoorn</h4>
+        <p>Voltairestraat 28</p>
+        <p>7323GL Apeldoorn</p>
+        <p>tel: 06 40495538</p>
+        <p>fax: 0847519566</p>
+        <p>email: info@boelens-techniek.nl</p>
 
-    <h2>Contact formulier</h2>
-    <form id="contact-form" action="" method="POST">
-        <input name="name" placeholder="Naam" type="text" /><br>
+        <h2>Contact formulier</h2>
+        <form id="contact-form" action="" method="POST">
+            <input name="name" placeholder="Naam" type="text" /><br>
 
-        <h3>Hoe wil je worden bereikt?</h3>
-        <input id="email" name="communication" value="email" type="radio" />
-        <label for="email">Email</label>
-        <br>
+            <h3>Hoe wil je worden bereikt?</h3>
+            <input id="email" name="communication" value="email" type="radio" />
+            <label for="email">Email</label>
+            <br>
 
-        <input id="phone" name="communication" value="phone" type="radio" />
-        <label for="phone">Telefoon</label>
-        <br>
+            <input id="phone" name="communication" value="phone" type="radio" />
+            <label for="phone">Telefoon</label>
+            <br>
 
-        <input id="both" name="communication" value="both" type="radio" />
-        <label for="both">Beide</label>
-        <br>
+            <input id="both" name="communication" value="both" type="radio" />
+            <label for="both">Beide</label>
+            <br>
 
-        <input name="email" placeholder="E-mailadres" type="email" /><br>
+            <input name="email" placeholder="E-mailadres" type="email" /><br>
 
-        <input name="phone" placeholder="Telefoon" type="tel" /><br>
+            <input name="phone" placeholder="Telefoon" type="tel" /><br>
 
-        <textarea name="message" form="contact-form"></textarea><br>
+            <textarea name="message" form="contact-form"></textarea><br>
 
-        <input name="formSubmit" value="Verstuur" type="submit" /><br>
-    </form>
+            <input name="formSubmit" value="Verstuur" type="submit" /><br>
+        </form>
+    </div>
 
     <footer>
-        Designed by <a href="http://www.yarnoboelens.com">Yarno Boelens</a>
+        <div class="footer navbar-fixed-bottom">
+            <p class="text-center">
+                Designed by <a href="http://www.yarnoboelens.com">Yarno Boelens</a>
+            </p>
+        </div>
     </footer>
 </body>
