@@ -3,11 +3,10 @@
     width: 95%;
     margin: auto;
     justify-content: space-evenly;
-    align-items: center;
+    align-items: flex-stretch;
     align-content: center;
 
     .card {
         width: 30%;
-        height: 475px;
     }
 }
