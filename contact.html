@@ -24,21 +24,21 @@
                 <input name="name" placeholder="Naam" type="text" /><br>
 
                 <h3>Hoe wil je worden bereikt?</h3>
-                <input id="email" name="communication" value="email" type="radio" />
+                <input id="email" name="communication" value="email" type="radio" onclick="selectInput(this.value)"/>
                 <label for="email">Email</label>
                 <br>
 
-                <input id="phone" name="communication" value="phone" type="radio" />
+                <input id="phone" name="communication" value="phone" type="radio" onclick="selectInput(this.value)"/>
                 <label for="phone">Telefoon</label>
                 <br>
 
-                <input id="both" name="communication" value="both" type="radio" />
+                <input id="both" name="communication" value="both" type="radio" onclick="selectInput(this.value)"/>
                 <label for="both">Beide</label>
                 <br>
 
-                <input name="email" placeholder="E-mailadres" type="email" /><br>
+                <div id="contactMethodsContainer">
 
-                <input name="phone" placeholder="Telefoon" type="tel" /><br>
+                </div>
 
                 <textarea name="message" form="contact-form"></textarea><br>
 
@@ -53,5 +53,6 @@
                 </p>
             </div>
         </footer>
+        <script src="js/contact.js"></script>
     </body>
 </html>
