@@ -9,6 +9,14 @@ html, body {
     min-height: calc(100% - #{$footerHeight});
 }
 
+.pageTopper {
+    padding: 2% 2% 1% 2%;
+    text-align: center;
+    box-shadow: 0 6px 4px 0 rgba(0,0,0,0.3);
+    -webkit-box-shadow: 0 6px 4px 0 rgba(0,0,0,0.3);
+    -moz-box-shadow: 0 6px 4px 0 rgba(0,0,0,0.3);
+}
+
 footer {
     height: $footerHeight;
     width: 100%;
