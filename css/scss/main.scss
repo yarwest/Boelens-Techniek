@@ -12,9 +12,10 @@ html, body {
 .pageTopper {
     padding: 2% 2% 1% 2%;
     text-align: center;
-    box-shadow: 0 6px 4px 0 rgba(0,0,0,0.3);
-    -webkit-box-shadow: 0 6px 4px 0 rgba(0,0,0,0.3);
-    -moz-box-shadow: 0 6px 4px 0 rgba(0,0,0,0.3);
+    box-shadow: 0 15px 20px rgba(0,0,0,0.5);
+    -webkit-box-shadow: 0 15px 20px rgba(0,0,0,0.5);
+    -moz-box-shadow: 0 15px 20px rgba(0,0,0,0.5);
+    position: relative;
 }
 
 footer {

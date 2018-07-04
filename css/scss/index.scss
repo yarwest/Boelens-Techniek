@@ -5,6 +5,15 @@
     margin: 0;
     background-color: rgba(0,0,0,0.05);
 
+    background-image: url("../images/art.jpg");
+    height: 100%;
+
+    /* Create the parallax scrolling effect */
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+
     .card-deck {
         margin: auto;
 
@@ -36,9 +45,9 @@
             padding-bottom: 5px;
 
             &:hover {
-                box-shadow: 0 4px 8px 0 rgba(0,0,0,0.4), 0 6px 20px 0 rgba(0,0,0,0.4);
-                -webkit-box-shadow: 0 4px 8px 0 rgba(0,0,0,0.4), 0 6px 20px 0 rgba(0,0,0,0.4);
-                -moz-box-shadow: 0 4px 8px 0 rgba(0,0,0,0.4), 0 6px 20px 0 rgba(0,0,0,0.4);
+                box-shadow: 0 4px 8px 0 rgba(0,0,0,0.5), 0 6px 20px 0 rgba(0,0,0,0.5);
+                -webkit-box-shadow: 0 4px 8px 0 rgba(0,0,0,0.5), 0 6px 20px 0 rgba(0,0,0,0.5);
+                -moz-box-shadow: 0 4px 8px 0 rgba(0,0,0,0.5), 0 6px 20px 0 rgba(0,0,0,0.5);
             }
             .card-img-top {
                 min-height: 40%;
@@ -64,4 +73,10 @@
             }
         }
     }
+}
+.nextContainer {
+    box-shadow: 0 -15px 20px rgba(0,0,0,0.5);
+    -webkit-box-shadow: 0 -15px 20px rgba(0,0,0,0.5);
+    -moz-box-shadow: 0 -15px 20px rgba(0,0,0,0.5);
+    position: relative;
 }
