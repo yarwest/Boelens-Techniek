@@ -21,13 +21,16 @@ html, body {
 footer {
     height: $footerHeight;
     width: 100%;
-    background-color: #0066ff;
-    color: black;
+    background-image: url("../images/art.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: right;
+    color: white;
     padding-top: 20px;
     a {
-        color: #001a4d;
+        color: darkgrey;
     }
     a:hover {
-        color: #002b80;
+        color: grey;
     }
 }
