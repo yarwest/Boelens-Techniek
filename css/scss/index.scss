@@ -1,11 +1,49 @@
+$footerHeight: 75px;
+$art: url("../images/art.jpg");
+
+html, body {
+    height: 100%;
+    min-height: 100%
+}
+
+.pageWrapper {
+    min-height: calc(100% - #{$footerHeight});
+}
+
+.pageTopper {
+    padding: 2% 2% 1% 2%;
+    text-align: center;
+    box-shadow: 0 15px 20px rgba(0,0,0,0.5);
+    -webkit-box-shadow: 0 15px 20px rgba(0,0,0,0.5);
+    -moz-box-shadow: 0 15px 20px rgba(0,0,0,0.5);
+    position: relative;
+}
+
+footer {
+    height: $footerHeight;
+    width: 100%;
+    background-image: $art;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: right;
+    color: white;
+    padding-top: 20px;
+    a {
+        color: darkgrey;
+    }
+    a:hover {
+        color: grey;
+    }
+}
+
 .cardWrapper {
     width: 100%;
     padding-top: 25px;
     padding-bottom: 25px;
     margin: 0;
-    background-color: rgba(0,0,0,0.05);
 
-    background-image: url("../images/art.jpg");
+    background-color: rgba(0,0,0,0.05);
+    background-image: $art;
     height: 100%;
 
     /* Create the parallax scrolling effect */
@@ -22,7 +60,7 @@
 
             flex-direction: row;
             justify-content: space-evenly;
-            align-items: flex-stretch;
+            align-items: stretch;
             align-content: center;
 
             .card {
@@ -61,8 +99,6 @@
                 h5 {
                     margin: 0;
                     height: 50px;
-                    line-height: 25px;
-                    vertical-align: center;
                 }
             }
 
