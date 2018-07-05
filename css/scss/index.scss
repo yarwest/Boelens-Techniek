@@ -110,9 +110,38 @@ footer {
         }
     }
 }
-.nextContainer {
+
+.ervaringContainer {
     box-shadow: 0 -15px 20px rgba(0,0,0,0.5);
     -webkit-box-shadow: 0 -15px 20px rgba(0,0,0,0.5);
     -moz-box-shadow: 0 -15px 20px rgba(0,0,0,0.5);
     position: relative;
+    text-align: center;
+
+
+    h2:first-of-type {
+        padding-top: 25px;
+    }
+
+    .industryContainer {
+        margin: auto;
+        width: 60%;
+        min-height: 450px;
+        display: flex;
+        align-items: center;
+        align-content: space-around;
+        flex-direction: row;
+        flex-wrap: wrap;
+
+        .industryCard {
+            margin: auto;
+            width: 30%;
+            height: 200px;
+            border: 2px blue solid;
+            word-wrap: break-word;
+
+            div {
+            }
+        }
+    }
 }
