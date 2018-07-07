@@ -8,9 +8,9 @@
         <link rel="stylesheet" type="text/css" href="css/index.css">
     </head>
     <body>
-        <div class="pageWrapper">
+        <div id="pageWrapper">
 
-            <div class="pageTopper">
+            <div id="pageTopper">
                 <div class="titleBox">
                     <h1>Welkom bij Boelens Techniek Apeldoorn</h1>
                     <h2>Functies</h2>
@@ -56,18 +56,18 @@
                     </div>
                 </div>
             </div>
-            <div class="ervaringContainer">
+            <div id="ervaringContainer">
                 <div class="titleBox">
                     <h2>Ruime ervaring in de volgende industrie&#235;n:</h2>
                 </div>
-                <div class="industryContainer">
+                <div id="industryContainer">
                     <div class="industryCard">
                         <div><i class="fa fa-newspaper fa-3x" aria-hidden="true"></i></div>
                         Papierproductie
                     </div>
                     <div class="industryCard">
                         <div><i class="fa fa-recycle fa-3x" aria-hidden="true"></i></div>
-                        Kunststof recycling
+                        Kunststofrecycling
                     </div>
                     <div class="industryCard">
                         <div><i class="fa fa-tint fa-3x" aria-hidden="true"></i></div>
@@ -79,15 +79,18 @@
                     </div>
                     <div class="industryCard">
                         <div><i class="fa fa-utensils fa-3x" aria-hidden="true"></i></div>
-                        Vleesverwerkings industrie
+                        Vleesverwerkingsindustrie
                     </div>
                     <div class="industryCard">
                         <div><i class="fa fa-wrench fa-3x" aria-hidden="true"></i></div>
                         Placeholder
                     </div>
+                    <div class="subtitleBox">
+                        <p>Gewerkt met PLC techniek, stoom en condensaat systemen, hydroliek en pneumatiek</p>
+                        <p>Zowel uitvoerend als leidinggevend aan 40 monteurs</p>
+                    </div>
                 </div>
-                <p>Gewerkt met PLC techniek, stoom en condensaat systemen, hydroliek en pneumatiek, en het opstellen en implementeren van onderhoud management systemen</p>
-                <p>Zowel uitvoerend als leidinggevend aan 40 monteurs</p>
+
 
                 <h2>Uitgevoerde functies:</h2>
                 <p>Monteur</p>
@@ -103,55 +106,66 @@
                 <p>Mitsubishi Melsec</p>
                 <p>Unitronics</p>
 
-                <h2>Bekend met frequentie regelaars van de volgende merken</h2>
+                <h2>Bekend met frequentie regelaars van</h2>
                 <p>Abb</p>
                 <p>Siemens</p>
                 <p>Danfoss</p>
 
-                <h2>Gewerkt met deze tekenpaketten</h2>
+                <h2>Werkervaring met de tekenpaketten</h2>
                 <p>EPLAN</p>
                 <p>Caddy / SEE</p>
                 <p>Autocad</p>
             </div>
-            <div class="nextContainer">
-                <div class="titleBox">
-                    <h1>Contact</h1>
-                </div>
-
-                <h2>Contact gegevens</h2>
-                <h3>Fred Boelens</h3>
-                <h4>Boelens Techniek Apeldoorn</h4>
-                <p>Voltairestraat 28</p>
-                <p>7323GL Apeldoorn</p>
-                <p><i class="fa fa-phone" aria-hidden="true"></i> tel: 06 40495538</p>
-                <p><i class="fa fa-fax" aria-hidden="true"></i> fax: 0847519566</p>
-                <p><i class="fa fa-at" aria-hidden="true"></i> email: info@boelens-techniek.nl</p>
-
-                <h2>Contact formulier</h2>
-                <form id="contact-form" action="" method="POST">
-                    <input name="name" placeholder="Naam" type="text" /><br>
-
-                    <h3>Hoe wil je worden bereikt?</h3>
-                    <input id="email" name="communication" value="email" type="radio" onclick="selectInput(this.value)"/>
-                    <label for="email">Email</label>
-                    <br>
-
-                    <input id="phone" name="communication" value="phone" type="radio" onclick="selectInput(this.value)"/>
-                    <label for="phone">Telefoon</label>
-                    <br>
-
-                    <input id="both" name="communication" value="both" type="radio" onclick="selectInput(this.value)"/>
-                    <label for="both">Beide</label>
-                    <br>
-
-                    <div id="contactMethodsContainer">
-
+            <div id="contactContainer">
+                <div id="contactFlexBox">
+                    <div id="contactDetails">
+                        <h2>Neem contact op</h2>
+                        <h3>Fred Boelens</h3>
+                        <h4>Boelens Techniek Apeldoorn</h4>
+                        <p>Voltairestraat 28</p>
+                        <p>7323GL Apeldoorn</p>
+                        <div class="checkboxes">
+                            <p><i class="fa fa-phone fa-2x fa-fw" aria-hidden="true"></i> tel: 06 40495538</p>
+                            <p><i class="fa fa-fax fa-2x fa-fw" aria-hidden="true"></i> fax: 0847519566</p>
+                            <p><i class="fa fa-at fa-2x fa-fw" aria-hidden="true"></i> email: info@boelens-techniek.nl</p>
+                        </div>
                     </div>
 
-                    <textarea name="message" form="contact-form"></textarea><br>
+                    <div id="contactForm">
+                        <h2>Of stuur direct een berichtje!</h2>
+                        <form id="contact-form" action="" method="POST">
+                            <div class="form-group">
+                                <input name="name" placeholder="Hoe heet je?" class="form-control" type="text" /><br>
+                            </div>
 
-                    <input name="formSubmit" value="Verstuur" type="submit" /><br>
-                </form>
+                            <div class="form-group">
+                                <h3>Waar kunnen we je bereiken?</h3>
+                                <div class="checkboxes">
+                                    <div class="form-check">
+                                        <input id="email" name="communication" class="form-check-input" type="radio" onclick="selectInput(`email`)" selected/>
+                                        <label class="form-check-label" for="email">Email</label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input id="phone" name="communication" class="form-check-input" type="radio" onclick="selectInput(`phone`)"/>
+                                        <label class="form-check-label" for="phone">Telefoon</label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input id="both" name="communication" class="form-check-input" type="radio" onclick="selectInput(`both`)"/>
+                                        <label class="form-check-label" for="both">Beide</label>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div id="contactMethodsContainer" class="form-group">
+                            </div>
+
+                            <textarea name="message" class="form-control" form="contact-form"></textarea><br>
+
+                            <small class="form-text text-muted">Je data wordt niet opgeslagen of met derden gedeeld</small>
+                            <input class="btn btn-primary btn-lg" name="formSubmit" value="Verstuur" type="submit" /><br>
+                        </form>
+                    </div>
+                </div>
             </div>
 
             <div class="nextContainer">

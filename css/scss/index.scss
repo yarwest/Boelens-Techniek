@@ -2,6 +2,7 @@ $footerHeight: 75px;
 $art: url("../images/art.jpg");
 $color1: #b6d0b2;
 $color2: #3f7b89;
+$color2rgba: rgba(63,123,137,.25);
 $color3: #174464;
 $color4: #041937;
 $color5: #04243d;
@@ -12,14 +13,14 @@ $color9: #006c88;
 
 html, body {
     height: 100%;
-    min-height: 100%
+    min-height: 100%;
 }
 
-.pageWrapper {
+#pageWrapper {
     min-height: calc(100% - #{$footerHeight});
 }
 
-.pageTopper {
+#pageTopper {
     box-shadow: 0 15px 20px rgba(0,0,0,0.5);
     -webkit-box-shadow: 0 15px 20px rgba(0,0,0,0.5);
     -moz-box-shadow: 0 15px 20px rgba(0,0,0,0.5);
@@ -29,6 +30,30 @@ html, body {
 .titleBox {
     padding: 2% 2% 1% 2%;
     text-align: center;
+}
+
+.subtitleBox {
+    font-size: 0.9em;
+    color: slategrey;
+    text-align: center;
+    margin: auto;
+}
+
+.checkboxes {
+    margin: auto;
+    text-align: left;
+    width: -webkit-max-content;
+    width: -moz-max-content;
+    width: max-content;
+}
+
+.btn-primary {
+    background-color: $color2;
+    border-color: $color2;
+}
+
+.form-control:focus {
+    box-shadow:0 0 0 .2rem $color2rgba;
 }
 
 footer {
@@ -123,19 +148,20 @@ footer {
     }
 }
 
-.ervaringContainer {
+#ervaringContainer {
     box-shadow: 0 -15px 20px rgba(0,0,0,0.5);
     -webkit-box-shadow: 0 -15px 20px rgba(0,0,0,0.5);
     -moz-box-shadow: 0 -15px 20px rgba(0,0,0,0.5);
     position: relative;
 
-    .industryContainer {
+    #industryContainer {
         text-align: center;
         margin: auto;
         width: 60%;
         min-height: 325px;
         display: flex;
         align-items: center;
+        justify-content: center;
         align-content: space-around;
         flex-direction: row;
         flex-wrap: wrap;
@@ -146,6 +172,8 @@ footer {
             width: 30%;
             height: 150px;
             word-wrap: break-word;
+            -moz-border-radius: 15px;
+            -webkit-border-radius: 15px;
             border-radius: 15px;
             color: white;
 
@@ -173,6 +201,41 @@ footer {
                 i {
                     margin-top: 10%;
                 }
+            }
+        }
+    }
+}
+
+#contactContainer {
+    width: 60%;
+    margin: auto;
+    text-align: center;
+
+    #contactFlexBox {
+        width: 100%;
+        display: flex;
+        align-items: flex-start;
+        justify-content: space-between;
+        flex-direction: row;
+        flex-wrap: nowrap;
+
+        & > div {
+            size: 45%;
+        }
+
+        #contactDetails {
+            & > p:nth-of-type(1) {
+                margin: 0;
+            }
+
+            i {
+                background-color: $color3;
+                color: white;
+                border-radius: 50%;
+                width: 50px;
+                height: 50px;
+                line-height: 50px;
+                text-align: center;
             }
         }
     }

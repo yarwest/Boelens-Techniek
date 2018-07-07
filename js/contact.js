@@ -1,4 +1,5 @@
 var contactMethodsContainer = document.getElementById("contactMethodsContainer");
+selectInput("email");
 
 function selectInput(method) {
     switch (method) {
@@ -27,6 +28,7 @@ function createEmailInput() {
     inputElement.name = "email";
     inputElement.type = "email";
     inputElement.placeholder = "E-mailadres";
+    inputElement.classList.add("form-control");
     return inputElement;
 }
 
@@ -35,5 +37,6 @@ function createPhoneInput() {
     inputElement.name = "phone";
     inputElement.type = "tel";
     inputElement.placeholder = "Telefoon";
+    inputElement.classList.add("form-control");
     return inputElement;
 }
