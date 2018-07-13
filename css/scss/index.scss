@@ -73,8 +73,13 @@ html, body {
 }
 
 .btn-primary {
-    background-color: $color2;
-    border-color: $color2;
+    background-color: $color3;
+    border-color: $color3;
+
+    &:hover, &:active, &:focus {
+        background-color: $color2 !important;
+        border-color: $color2 !important;
+    }
 }
 
 .form-control:focus {
@@ -233,13 +238,13 @@ footer {
     #contactFlexBox {
         width: 100%;
         display: flex;
-        align-items: flex-start;
+        align-items: stretch;
         justify-content: space-between;
         flex-direction: row;
         flex-wrap: nowrap;
 
         & > div {
-            size: 45%;
+            @include vendorPrefixes(flex, 1);
         }
 
         #contactDetails {
@@ -255,6 +260,12 @@ footer {
                 height: 50px;
                 line-height: 50px;
                 text-align: center;
+            }
+        }
+
+        #formContactOptions {
+            & > div:nth-of-type(2) {
+                @include verticalAlign(middle);
             }
         }
     }
