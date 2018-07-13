@@ -11,6 +11,33 @@ $color7: #24bc92;
 $color8: #e39e44;
 $color9: #006c88;
 
+// Automatically vertically align text inside a container
+@mixin verticalAlign($align: middle) {
+  &:before {
+    content: "";
+    display: inline-block;
+    height: 100%;
+    vertical-align: $align;
+    // you can add font-size 0 here and restore in the children to preventthe
+    // the inline-block white-space to mess the width of your elements
+    font-size: 0;
+  }
+  & > * {
+    vertical-align: $align;
+    // although you need to know the font-size, because "inherit" is 0
+    font-size: 1em;
+  }
+}
+
+// Add base property and vendor prefixes
+@mixin vendorPrefixes($property, $value...) {
+    -webkit-#{$property}: $value;
+    -moz-#{$property}: $value;
+    -ms-#{$property}: $value;
+    -o-#{$property}: $value;
+    #{$property}: $value;
+}
+
 html, body {
     height: 100%;
     min-height: 100%;
@@ -21,9 +48,7 @@ html, body {
 }
 
 #pageTopper {
-    box-shadow: 0 15px 20px rgba(0,0,0,0.5);
-    -webkit-box-shadow: 0 15px 20px rgba(0,0,0,0.5);
-    -moz-box-shadow: 0 15px 20px rgba(0,0,0,0.5);
+    @include vendorPrefixes(box-shadow, 0 15px 20px rgba(0,0,0,0.5));
     position: relative;
 }
 
@@ -120,9 +145,7 @@ footer {
             padding-bottom: 5px;
 
             &:hover {
-                box-shadow: 0 4px 8px 0 rgba(0,0,0,0.5), 0 6px 20px 0 rgba(0,0,0,0.5);
-                -webkit-box-shadow: 0 4px 8px 0 rgba(0,0,0,0.5), 0 6px 20px 0 rgba(0,0,0,0.5);
-                -moz-box-shadow: 0 4px 8px 0 rgba(0,0,0,0.5), 0 6px 20px 0 rgba(0,0,0,0.5);
+                @include vendorPrefixes(box-shadow, 0 4px 8px 0 rgba(0,0,0,0.5), 0 6px 20px 0 rgba(0,0,0,0.5));
             }
             .card-img-top {
                 min-height: 40%;
@@ -149,9 +172,7 @@ footer {
 }
 
 #ervaringContainer {
-    box-shadow: 0 -15px 20px rgba(0,0,0,0.5);
-    -webkit-box-shadow: 0 -15px 20px rgba(0,0,0,0.5);
-    -moz-box-shadow: 0 -15px 20px rgba(0,0,0,0.5);
+    @include vendorPrefixes(box-shadow, 0 -15px 20px rgba(0,0,0,0.5));
     position: relative;
 
     #industryContainer {
@@ -172,9 +193,7 @@ footer {
             width: 30%;
             height: 150px;
             word-wrap: break-word;
-            -moz-border-radius: 15px;
-            -webkit-border-radius: 15px;
-            border-radius: 15px;
+            @include vendorPrefixes(border-radius, 15px);
             color: white;
 
             &:nth-child(6n + 1) {
