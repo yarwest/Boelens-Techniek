@@ -86,6 +86,10 @@ html, body {
     box-shadow:0 0 0 .2rem $color2rgba;
 }
 
+.invalid-feedback {
+    text-align: left;
+}
+
 footer {
     height: $footerHeight;
     width: 100%;
