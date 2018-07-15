@@ -131,9 +131,9 @@
                         </div>
                     </div>
 
-                    <div id="contactForm">
+                    <div id="contactFormContainer">
                         <h2>Of stuur direct een berichtje!</h2>
-                        <form id="contact-form" action="" class="needs-validation" method="POST" novalidate>
+                        <form id="contactForm" action="" class="needs-validation" method="POST" novalidate>
                             <div class="form-group">
                                 <input name="name" placeholder="Hoe heet je?" class="form-control" type="text" required />
                                 <div class="invalid-feedback">
@@ -143,18 +143,18 @@
 
                             <div class="form-group">
                                 <h3>Waar kunnen we je bereiken?</h3>
-                                <div id="formContactOptions" class="form-row">
+                                <div id="contactFormContactOptions" class="form-row">
                                     <div class="col">
-                                        <input name="email" type="email" placeholder="E-mailadres" class="form-control" required="#phone:empty" />
+                                        <input name="email" id="contactFormEmailInput" type="email" placeholder="E-mailadres" class="form-control" />
                                     </div>
-                                    <div class="col-auto">- Of -</div>
+                                    <div class="col-auto">- of -</div>
                                     <div class="col">
-                                        <input name="phone" type="tel" placeholder="Telefoonnummer" class="form-control" required="#email:empty" />
+                                        <input name="phone" id="contactFormPhoneInput" type="tel" placeholder="Telefoonnummer" class="form-control" />
                                     </div>
                                 </div>
-                                <input name="helper" type="text" style="display:none;" class="form-control" required="#phone:empty && #email:empty">
+                                <input name="helper" id="contactFormValidationHelper" type="text" style="display:none;" class="form-control" />
                                 <div class="invalid-feedback">
-                                    Geef of een e-mailadres of een telefoonnummer op
+                                    Geef tenminste een e-mailadres of een telefoonnummer op
                                 </div>
                             </div>
 
@@ -168,27 +168,6 @@
                             <small class="form-text text-muted">Je data wordt niet opgeslagen of met derden gedeeld</small>
                             <input class="btn btn-primary btn-lg" name="formSubmit" value="Verstuur" type="submit" />
                         </form>
-
-                        <script>
-                            // Example starter JavaScript for disabling form submissions if there are invalid fields
-                            (function() {
-                              'use strict';
-                              window.addEventListener('load', function() {
-                                // Fetch all the forms we want to apply custom Bootstrap validation styles to
-                                var forms = document.getElementsByClassName('needs-validation');
-                                // Loop over them and prevent submission
-                                var validation = Array.prototype.filter.call(forms, function(form) {
-                                  form.addEventListener('submit', function(event) {
-                                    if (form.checkValidity() === false) {
-                                      event.preventDefault();
-                                      event.stopPropagation();
-                                    }
-                                    form.classList.add('was-validated');
-                                  }, false);
-                                });
-                              }, false);
-                            })();
-                        </script>
                     </div>
                 </div>
             </div>
@@ -232,4 +211,5 @@
             </div>
         </footer>
     </body>
+    <script src="js/validation.js"></script>
 </html>

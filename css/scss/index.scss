@@ -90,6 +90,10 @@ html, body {
     text-align: left;
 }
 
+small {
+    margin-bottom: 10px;
+}
+
 footer {
     height: $footerHeight;
     width: 100%;
@@ -267,7 +271,7 @@ footer {
             }
         }
 
-        #formContactOptions {
+        #contactFormContactOptions {
             & > div:nth-of-type(2) {
                 @include verticalAlign(middle);
             }
