@@ -135,7 +135,7 @@
                         <h2>Of stuur direct een berichtje!</h2>
                         <form id="contactForm" action="" class="needs-validation" method="POST" novalidate>
                             <div class="form-group">
-                                <input name="name" placeholder="Hoe heet je?" class="form-control" type="text" required />
+                                <input name="name" id="contactFormNameInput" placeholder="Hoe heet je?" class="form-control" type="text" />
                                 <div class="invalid-feedback">
                                     Geef alsjeblieft je naam op
                                 </div>
@@ -159,7 +159,7 @@
                             </div>
 
                             <div class="form-group">
-                                <textarea name="message" placeholder="Brandt los" class="form-control" rows="5" form="contact-form" required ></textarea>
+                                <textarea name="message" id="contactFormMessageInput" placeholder="Brandt los" class="form-control" rows="5" form="contact-form" ></textarea>
                                 <div class="invalid-feedback">
                                     Een bericht zonder bericht is geen bericht
                                 </div>
