@@ -10,7 +10,6 @@ $color6: #92de7e;
 $color7: #24bc92;
 $color8: #e39e44;
 $color9: #006c88;
-
 // Automatically vertically align text inside a container
 @mixin verticalAlign($align: middle) {
   &:before {
@@ -22,259 +21,276 @@ $color9: #006c88;
     // the inline-block white-space to mess the width of your elements
     font-size: 0;
   }
+
   & > * {
     vertical-align: $align;
     // although you need to know the font-size, because "inherit" is 0
     font-size: 1em;
   }
 }
-
 // Add base property and vendor prefixes
 @mixin vendorPrefixes($property, $value...) {
-    -webkit-#{$property}: $value;
-    -moz-#{$property}: $value;
-    -ms-#{$property}: $value;
-    -o-#{$property}: $value;
-    #{$property}: $value;
+  -webkit-#{$property}: $value;
+  -moz-#{$property}: $value;
+  -ms-#{$property}: $value;
+  -o-#{$property}: $value;
+  #{$property}: $value;
 }
 
-html, body {
-    height: 100%;
-    min-height: 100%;
+body,
+html {
+  height: 100%;
+  min-height: 100%;
 }
 
 #pageWrapper {
-    min-height: calc(100% - #{$footerHeight});
+  min-height: calc(100% - #{$footerHeight});
 }
 
 #pageTopper {
-    @include vendorPrefixes(box-shadow, 0 15px 20px rgba(0,0,0,0.5));
-    position: relative;
+  @include vendorPrefixes(box-shadow, 0 15px 20px rgba(0,0,0,0.5));
+  position: relative;
 }
 
 .titleBox {
-    padding: 2% 2% 1% 2%;
-    text-align: center;
+  padding: 2% 2% 1%;
+  text-align: center;
 }
 
 .subtitleBox {
-    font-size: 0.9em;
-    color: slategrey;
-    text-align: center;
-    margin: auto;
+  font-size: 0.9em;
+  color: slategrey;
+  text-align: center;
+  margin: auto;
 }
 
 .checkboxes {
-    margin: auto;
-    text-align: left;
-    width: -webkit-max-content;
-    width: -moz-max-content;
-    width: max-content;
+  margin: auto;
+  text-align: left;
+  width: -webkit-max-content;
+  width: -moz-max-content;
+  width: max-content;
 }
 
 .btn-primary {
-    background-color: $color3;
-    border-color: $color3;
+  background-color: $color3;
+  border-color: $color3;
 
-    &:hover, &:active, &:focus {
-        background-color: $color2 !important;
-        border-color: $color2 !important;
-    }
+  &:active,
+  &:focus,
+  &:hover {
+    background-color: $color2 !important;
+    border-color: $color2 !important;
+  }
 }
 
 .form-control:focus {
-    box-shadow:0 0 0 .2rem $color2rgba;
+  box-shadow: 0 0 0 0.2rem $color2rgba;
 }
 
-.invalid-feedback {
-    text-align: left;
+.invalidFeedback {
+  display: none;
+  width: 100%;
+  margin-top: 0.25rem;
+  font-size: 80%;
+  color: #dc3545;
+  text-align: left;
 }
 
 small {
-    margin-bottom: 10px;
+  margin-bottom: 10px;
 }
 
 footer {
-    height: $footerHeight;
-    width: 100%;
-    background-image: $art;
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: right;
-    color: white;
-    padding-top: 20px;
-    a {
-        color: darkgrey;
-    }
-    a:hover {
-        color: grey;
-    }
+  height: $footerHeight;
+  width: 100%;
+  background-image: $art;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: right;
+  color: white;
+  padding-top: 20px;
+
+  a {
+    color: darkgrey;
+  }
+
+  a:hover {
+    color: grey;
+  }
 }
 
 .cardWrapper {
-    width: 100%;
-    padding-top: 25px;
-    padding-bottom: 25px;
-    margin: 0;
+  width: 100%;
+  padding-top: 25px;
+  padding-bottom: 25px;
+  margin: 0;
+  background-color: rgba(0,0,0,0.05);
+  background-image: $art;
+  height: 100%;
+  /* Create the parallax scrolling effect */
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
 
-    background-color: rgba(0,0,0,0.05);
-    background-image: $art;
-    height: 100%;
+  .titleBox {
+    color: white;
+    padding-top: 0;
+  }
 
-    /* Create the parallax scrolling effect */
-    background-attachment: fixed;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
+  .card-deck {
+    margin: auto;
+    @media screen and (min-width: 1000px) {
+      width: 60%;
+      flex-direction: row;
+      justify-content: space-evenly;
+      align-items: stretch;
+      align-content: center;
 
-    .card-deck {
-        margin: auto;
-
-        @media screen and (min-width: 1000px) {
-            width: 60%;
-
-            flex-direction: row;
-            justify-content: space-evenly;
-            align-items: stretch;
-            align-content: center;
-
-            .card {
-                width: 30%;
-            }
-        }
-        @media screen and (max-width: 1000px) {
-            width: 80%;
-
-            flex-direction: column;
-            align-items: center;
-
-            .card {
-                width: 90%;
-                margin-bottom: 25px;
-            }
-        }
-
-        .card {
-            padding-bottom: 5px;
-
-            &:hover {
-                @include vendorPrefixes(box-shadow, 0 4px 8px 0 rgba(0,0,0,0.5), 0 6px 20px 0 rgba(0,0,0,0.5));
-            }
-            .card-img-top {
-                min-height: 40%;
-                object-fit: cover;
-            }
-
-            .card-body {
-                flex-grow: 0;
-                padding-bottom: 10px;
-
-                h5 {
-                    margin: 0;
-                    height: 50px;
-                }
-            }
-
-            .list-group {
-                .list-group-item:last-of-type {
-                    border-bottom: 0;
-                }
-            }
-        }
+      .card {
+        width: 30%;
+      }
     }
+    @media screen and (max-width: 1000px) {
+      width: 80%;
+      flex-direction: column;
+      align-items: center;
+
+      .card {
+        width: 90%;
+        margin-bottom: 25px;
+      }
+    }
+
+    .card {
+      padding-bottom: 5px;
+
+      &:hover {
+        @include vendorPrefixes(box-shadow, 0 4px 8px 0 rgba(0,0,0,0.5), 0 6px 20px 0 rgba(0,0,0,0.5));
+      }
+
+      .card-img-top {
+        min-height: 40%;
+        object-fit: cover;
+      }
+
+      .card-body {
+        flex-grow: 0;
+        padding-bottom: 10px;
+
+        h5 {
+          margin: 0;
+          height: 50px;
+        }
+      }
+
+      .list-group {
+        .list-group-item:last-of-type {
+          border-bottom: 0;
+        }
+      }
+    }
+  }
 }
 
 #ervaringContainer {
-    @include vendorPrefixes(box-shadow, 0 -15px 20px rgba(0,0,0,0.5));
-    position: relative;
+  @include vendorPrefixes(box-shadow, 0 -15px 20px rgba(0,0,0,0.5));
+  position: relative;
 
-    #industryContainer {
-        text-align: center;
-        margin: auto;
-        width: 60%;
-        min-height: 325px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        align-content: space-around;
-        flex-direction: row;
-        flex-wrap: wrap;
+  #industryContainer {
+    text-align: center;
+    margin: auto;
+    width: 60%;
+    min-height: 325px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    align-content: space-around;
+    flex-direction: row;
+    flex-wrap: wrap;
 
-        .industryCard {
-            margin: auto 15px 15px 0;
-            padding: 5px;
-            width: 30%;
-            height: 150px;
-            word-wrap: break-word;
-            @include vendorPrefixes(border-radius, 15px);
-            color: white;
+    .industryCard {
+      margin: auto 15px 15px 0;
+      padding: 5px;
+      width: 30%;
+      height: 150px;
+      word-wrap: break-word;
+      @include vendorPrefixes(border-radius, 15px);
+      color: white;
 
-            &:nth-child(6n + 1) {
-                background-color: $color3;
-            }
-            &:nth-child(6n + 2) {
-                background-color: $color6;
-            }
-            &:nth-child(6n + 3) {
-                background-color: $color9;
-            }
-            &:nth-child(6n + 4) {
-                background-color: $color7;
-            }
-            &:nth-child(6n + 5) {
-                background-color: $color2;
-            }
-            &:nth-child(6n + 6) {
-                background-color: $color8;
-            }
+      &:nth-child(6n + 1) {
+        background-color: $color3;
+      }
 
-            div {
-                height: 60%;
-                i {
-                    margin-top: 10%;
-                }
-            }
+      &:nth-child(6n + 2) {
+        background-color: $color6;
+      }
+
+      &:nth-child(6n + 3) {
+        background-color: $color9;
+      }
+
+      &:nth-child(6n + 4) {
+        background-color: $color7;
+      }
+
+      &:nth-child(6n + 5) {
+        background-color: $color2;
+      }
+
+      &:nth-child(6n + 6) {
+        background-color: $color8;
+      }
+
+      div {
+        height: 60%;
+
+        i {
+          margin-top: 10%;
         }
+      }
     }
+  }
 }
 
 #contactContainer {
-    width: 60%;
-    margin: auto;
-    text-align: center;
+  width: 60%;
+  margin: auto;
+  text-align: center;
 
-    #contactFlexBox {
-        width: 100%;
-        display: flex;
-        align-items: stretch;
-        justify-content: space-between;
-        flex-direction: row;
-        flex-wrap: nowrap;
+  #contactFlexBox {
+    width: 100%;
+    display: flex;
+    align-items: stretch;
+    justify-content: space-between;
+    flex-direction: row;
+    flex-wrap: nowrap;
 
-        & > div {
-            @include vendorPrefixes(flex, 1);
-        }
-
-        #contactDetails {
-            & > p:nth-of-type(1) {
-                margin: 0;
-            }
-
-            i {
-                background-color: $color3;
-                color: white;
-                border-radius: 50%;
-                width: 50px;
-                height: 50px;
-                line-height: 50px;
-                text-align: center;
-            }
-        }
-
-        #contactFormContactOptions {
-            & > div:nth-of-type(2) {
-                @include verticalAlign(middle);
-            }
-        }
+    & > div {
+      @include vendorPrefixes(flex, 1);
     }
+
+    #contactDetails {
+      & > p:nth-of-type(1) {
+        margin: 0;
+      }
+
+      i {
+        background-color: $color3;
+        color: white;
+        border-radius: 50%;
+        width: 50px;
+        height: 50px;
+        line-height: 50px;
+        text-align: center;
+      }
+    }
+
+    #contactFormContactOptions {
+      & > div:nth-of-type(2) {
+        @include verticalAlign(middle);
+      }
+    }
+  }
 }
