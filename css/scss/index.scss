@@ -10,6 +10,7 @@ $color6: #92de7e;
 $color7: #24bc92;
 $color8: #e39e44;
 $color9: #006c88;
+
 // Automatically vertically align text inside a container
 @mixin verticalAlign($align: middle) {
   &:before {
@@ -28,6 +29,7 @@ $color9: #006c88;
     font-size: 1em;
   }
 }
+
 // Add base property and vendor prefixes
 @mixin vendorPrefixes($property, $value...) {
   -webkit-#{$property}: $value;
@@ -112,11 +114,12 @@ footer {
   padding-top: 20px;
 
   a {
+    text-decoration: underline;
     color: darkgrey;
-  }
 
-  a:hover {
-    color: grey;
+    &:hover {
+      color: grey;
+    }
   }
 }
 
@@ -292,5 +295,27 @@ footer {
         @include verticalAlign(middle);
       }
     }
+  }
+}
+
+#resourceContainer {
+  width: 30%;
+  margin: auto;
+  text-align: center;
+
+  ul {
+    text-align: left;
+
+    a {
+      color: rgba(0, 0, 0, 0.84);
+      text-decoration: underline;
+      font-size: 22px;
+    }
+  }
+
+  .resourceList {
+    // TODO: replace with `width: max-content` once edge starts supporing it
+    display: table;
+    margin: auto;
   }
 }
