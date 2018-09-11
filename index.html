@@ -136,8 +136,11 @@
                         <form id="contactForm" action="" class="needs-validation" method="POST" novalidate>
                             <div class="form-group">
                                 <input name="name" id="contactFormNameInput" placeholder="Hoe heet je?" class="form-control" type="text" />
-                                <div class="invalid-feedback">
+                                <div class="invalidFeedback" id="contactFormMissingName">
                                     Geef alsjeblieft je naam op
+                                </div>
+                                <div class="invalidFeedback" id="contactFormInvalidName">
+                                    Een naam mag alleen uit letters bestaan
                                 </div>
                             </div>
 
@@ -146,21 +149,26 @@
                                 <div id="contactFormContactOptions" class="form-row">
                                     <div class="col">
                                         <input name="email" id="contactFormEmailInput" type="email" placeholder="E-mailadres" class="form-control" />
+                                        <div class="invalidFeedback" id="contactFormInvalidEmail">
+                                            Ongeldig e-mailadres
+                                        </div>
                                     </div>
                                     <div class="col-auto">- of -</div>
                                     <div class="col">
                                         <input name="phone" id="contactFormPhoneInput" type="tel" placeholder="Telefoonnummer" class="form-control" />
+                                        <div class="invalidFeedback" id="contactFormInvalidPhone">
+                                            Een telefoonnummer mag alleen uit nummers bestaan
+                                        </div>
                                     </div>
                                 </div>
-                                <input name="helper" id="contactFormValidationHelper" type="text" style="display:none;" class="form-control" />
-                                <div class="invalid-feedback">
+                                <div class="invalidFeedback" id="contactFormInvalidContactOptions">
                                     Geef tenminste een e-mailadres of een telefoonnummer op
                                 </div>
                             </div>
 
                             <div class="form-group">
                                 <textarea name="message" id="contactFormMessageInput" placeholder="Brandt los" class="form-control" rows="5" form="contact-form" ></textarea>
-                                <div class="invalid-feedback">
+                                <div class="invalidFeedback" id="contactFormInvalidMessage">
                                     Een bericht zonder bericht is geen bericht
                                 </div>
                             </div>

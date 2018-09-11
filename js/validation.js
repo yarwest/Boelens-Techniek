@@ -1,10 +1,37 @@
 class FormObject {
-    constructor(input) {
-        this.input = input;
+    constructor(inputId, feedbackId, formatRegex, formattingFeedbackId, optional) {
+        this.input = document.getElementById(inputId);
+        let ref = this;
+        this.input.addEventListener('input', function() {
+            if(!submitAttempt) {
+                ref.validate();
+            } else {
+                validateContactInputs();
+            }
+        });
+        if(feedbackId !== undefined) {
+            this.feedbackElement = document.getElementById(feedbackId);
+        }
+        if(formatRegex !== undefined) {
+            this.formatRegex = formatRegex;
+        }
+        if(formattingFeedbackId !== undefined) {
+            this.formattingFeedbackElement = document.getElementById(formattingFeedbackId);
+        }
+        if(optional !== undefined) {
+            this.optional = optional;
+        } else {
+            this.optional = false;
+        }
     }
     get value() {
         return this.input.value.trim();
     }
+
+    get empty() {
+        return this.value.length === 0;
+    }
+
     setValid() {
         this.input.classList.remove("is-invalid");
         this.input.classList.add("is-valid");
@@ -17,110 +44,83 @@ class FormObject {
         this.input.classList.remove("is-invalid");
         this.input.classList.remove("is-valid");
     }
+    resetFeedback() {
+        if(this.feedbackElement) {
+            this.feedbackElement.style.display = "none";
+        }
+        if(this.formattingFeedbackElement) {
+            this.formattingFeedbackElement.style.display = "none";
+        }
+    }
+
+    /**
+     * Validate the current value
+     * @returns boolean, true if valid, false if not
+     */
+    validate() {
+        this.resetFeedback();
+        if(!this.empty) {
+            if(this.formatRegex) {
+                if(!this.formatRegex.test(this.value)) {
+                    this.setInvalid();
+                    if(this.formattingFeedbackElement) {
+                        this.formattingFeedbackElement.style.display = "block";
+                    }
+                    return false;
+                }
+            }
+            this.setValid();
+            return true;
+        } else if(!this.optional) {
+          this.setInvalid();
+          if(this.feedbackElement) {
+              this.feedbackElement.style.display = "block";
+          }
+          return false;
+        }
+        this.setNeutral();
+        this.resetFeedback();
+        return true;
+    }
 }
 
-const validationHelper = document.getElementById("contactFormValidationHelper"),
-    form = document.getElementById("contactForm");
+const nameObject = new FormObject("contactFormNameInput", "contactFormMissingName", /^([a-z-,.' ]+)$/i, "contactFormInvalidName"),
+    emailObject = new FormObject("contactFormEmailInput", undefined, /^([a-z0-9]+@[a-z0-9]+([.][a-z0-9]+)?)$/i, "contactFormInvalidEmail", true),
+    phoneObject = new FormObject("contactFormPhoneInput", undefined, /^([0-9 +]+)$/i, "contactFormInvalidPhone", true),
+    messageObject = new FormObject("contactFormMessageInput", "contactFormInvalidMessage"),
+    contactOptionsFeedback = document.getElementById("contactFormInvalidContactOptions");
 
-const emailObject = new FormObject(document.getElementById("contactFormNameInput")),
-    phoneObject = new FormObject(document.getElementById("contactFormPhoneInput")),
-    nameObject = new FormObject(document.getElementById("contactFormNameInput")),
-    messageObject = new FormObject(document.getElementById("contactFormMessageInput"));
-
-function validateContactNewInput() {
+function validateContactInputs() {
     let valid = true;
 
-    if(nameObject.value.length === 0) {
-        console.log("no name");
-        nameObject.setInvalid();
+    const nameValidated = nameObject.validate(),
+        messageValidated = messageObject.validate(),
+        emailValidated = emailObject.validate(),
+        phoneValidated = phoneObject.validate();
+
+    if(!nameValidated || !messageValidated || !emailValidated || !phoneValidated) {
         valid = false;
-    } else {
-        if(!/^([a-z-,.']+)$/i.test(nameObject.value)) {
-            console.log("name invalid");
-            nameObject.setInvalid();
-            valid = false;
-        } else {
-            nameObject.setValid();
-        }
-    }
-    if(messageObject.value.length === 0) {
-        console.log("no message");
-        messageObject.setInvalid();
-        valid = false;
-    } else {
-        messageObject.setValid();
-    }
-    if(emailObject.value.length === 0 && phoneObject.value.length === 0) {
-        console.log("email or phone not present");
-        emailObject.setInvalid();
-        phoneObject.setInvalid();
-        setInvalid(validationHelper);
-        valid = false;
-    } else {
-        setValid(validationHelper);
-        if(emailObject.value.length > 0) {
-            if(!/^([a-z0-9]+@[a-z0-9]+([.][a-z0-9]+)?)$/i.test(emailObject.value)) {
-                console.log("email invalid");
-                emailObject.setInvalid();
-                valid = false;
-            } else {
-                emailObject.setValid();
-                if(phoneObject.value.length === 0) {
-                    phoneObject.setNeutral();
-                }
-            }
-        }
-        if(phoneObject.value.length > 0) {
-            if(!/^([0-9 +]+)$/i.test(phoneObject.value)) {
-                console.log("phone invalid");
-                phoneObject.setInvalid();
-                valid = false;
-            } else {
-                phoneObject.setValid();
-                if(emailObject.value.length === 0) {
-                    emailObject.setNeutral();
-                }
-            }
-        }
     }
 
-    if(valid) {
-        setAllInputValid();
+    if(emailObject.empty && phoneObject.empty) {
+        emailObject.setInvalid();
+        phoneObject.setInvalid();
+        contactOptionsFeedback.style.display = "block";
+        valid = false;
+    } else {
+        contactOptionsFeedback.style.display = "none";
     }
+
     return valid;
 }
 
-function setAllInputValid() {
-    nameObject.setValid();
-    messageObject.setValid();
-    emailObject.setValid();
-    phoneObject.setValid();
-    validationHelper.classList.remove("is-invalid");
-}
-
-function setValid() {
-    
-}
-
-function setInvalid() {
-
-}
-
-function removeValidation() {
-
-}
-
-//emailInput.addEventListener('input', function() {
-    //validateContactNewInput();
-//});
-//phoneInput.addEventListener('input', function() {
-    //validateContactNewInput();
-//});
-
+const form = document.getElementById("contactForm");
+let submitAttempt = false;
 window.addEventListener('load', function() {
     // Prevent submission
     form.addEventListener('submit', function(event) {
-        const validationSuccessful = validateContactNewInput();
+        submitAttempt = true;
+        const validationSuccessful = validateContactInputs();
 
         if (!form.checkValidity() || !validationSuccessful) {
             event.preventDefault();
