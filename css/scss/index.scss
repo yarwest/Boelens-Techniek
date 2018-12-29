@@ -135,6 +135,7 @@ footer {
   width: 40%;
   background-color: $color2;
   color: white;
+  border-radius: 15px;
 
   .collapsibleListHeader {
     min-height: 30px;
@@ -150,7 +151,11 @@ footer {
 
   .collapsibleListItems {
     text-align: center;
-    display: none;
+    overflow-y: hidden;
+    max-height: 0;
+    height: fit-content;
+    transition-property: max-height;
+    transition-duration: .5s;
   }
 
   .fa-chevron-down {
@@ -171,7 +176,10 @@ footer {
     }
 
     .collapsibleListItems {
-      display: block;
+      max-height: 500px;
+      transition-property: max-height;
+      transition-duration: 1s;
+	    transition-timing-function: ease;
     }
   }
 }
