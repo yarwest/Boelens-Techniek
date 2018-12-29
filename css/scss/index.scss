@@ -76,14 +76,6 @@ html {
   margin: auto;
 }
 
-.checkboxes {
-  margin: auto;
-  text-align: left;
-  width: -webkit-max-content;
-  width: -moz-max-content;
-  width: max-content;
-}
-
 .btn-primary {
   background-color: $color3;
   border-color: $color3;
@@ -351,6 +343,24 @@ footer {
         height: 50px;
         line-height: 50px;
         text-align: center;
+        margin-right: 15px;
+      }
+
+      .contactDetailBullets {
+        margin: auto;
+        text-align: left;
+        width: -webkit-max-content;
+        width: -moz-max-content;
+        width: max-content;
+
+        a {
+          text-decoration: none;
+          color: rgba(0, 0, 0, 0.84);
+          display: flex;
+          align-items: center;
+          justify-content: flex-start;
+          margin-bottom: 1rem;
+        }
       }
     }
 
