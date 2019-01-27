@@ -74,6 +74,9 @@ html {
   color: slategrey;
   text-align: center;
   margin: auto;
+  p {
+    margin-bottom: 0.1rem;
+  }
 }
 
 .btn-primary {
@@ -228,7 +231,7 @@ footer {
     }
 
     .card {
-      padding-bottom: 30px;
+      padding-bottom: 80px;
 
       &:hover {
         @include vendorPrefixes(box-shadow, 0 4px 8px 0 rgba(0,0,0,0.5), 0 6px 20px 0 rgba(0,0,0,0.5));
@@ -311,8 +314,10 @@ footer {
       div {
         height: 60%;
 
-        i {
+        i, img {
           margin-top: 10%;
+          height: 3em;
+          width: 3em;
         }
       }
     }
