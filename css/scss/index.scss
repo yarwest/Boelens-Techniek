@@ -79,31 +79,6 @@ html {
   }
 }
 
-.btn-primary {
-  background-color: $color3;
-  border-color: $color3;
-
-  &:active,
-  &:focus,
-  &:hover {
-    background-color: $color2 !important;
-    border-color: $color2 !important;
-  }
-}
-
-.form-control:focus {
-  box-shadow: 0 0 0 0.2rem $color2rgba;
-}
-
-.invalidFeedback {
-  display: none;
-  width: 100%;
-  margin-top: 0.25rem;
-  font-size: 80%;
-  color: #dc3545;
-  text-align: left;
-}
-
 small {
   margin-bottom: 10px;
 }
@@ -124,65 +99,6 @@ footer {
 
     &:hover {
       color: grey;
-    }
-  }
-}
-
-.collapsibleListContainer {
-  margin: auto;
-  display: flex;
-  flex-direction: column;
-  align-items: stretch;
-  justify-content: flex-start;
-  padding: 15px;
-  width: 40%;
-  background-color: $color2;
-  color: white;
-  border-radius: 15px;
-
-  .collapsibleListHeader {
-    min-height: 30px;
-    padding-left: 15px;
-    padding-right: 15px;
-    cursor: pointer;
-    user-select: none;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-between;
-  }
-
-  .collapsibleListItems {
-    text-align: center;
-    overflow-y: hidden;
-    max-height: 0;
-    height: fit-content;
-    transition-property: max-height;
-    transition-duration: .5s;
-  }
-
-  .fa-chevron-down {
-    animation-name: spinBack;
-    animation-duration: 250ms;
-    animation-iteration-count: 1;
-    animation-timing-function: linear;
-    animation-fill-mode: forwards;
-  }
-
-  .collapsibleList.selected {
-    .fa-chevron-down {
-      animation-name: spin;
-      animation-duration: 250ms;
-      animation-iteration-count: 1;
-      animation-timing-function: linear;
-      animation-fill-mode: forwards;
-    }
-
-    .collapsibleListItems {
-      max-height: 500px;
-      transition-property: max-height;
-      transition-duration: 1s;
-	    transition-timing-function: ease;
     }
   }
 }
@@ -325,14 +241,14 @@ footer {
 }
 
 #contactContainer {
-  width: 60%;
   margin: auto;
   text-align: center;
   padding-top: 2%;
   padding-bottom: 1%;
 
   #contactFlexBox {
-    width: 100%;
+    width: 60%;
+    margin: auto;
     display: flex;
     align-items: stretch;
     justify-content: space-between;
@@ -380,49 +296,5 @@ footer {
     .col-auto {
       max-height: 38px;
     }
-
-    .form-group {
-      margin-bottom: 0;
-    }
-
-    #contactFormNameGroup {
-      height: 60px;
-    }
-
-    #contactFormContactOptionsGroup {
-      height: 80px;
-    }
-
-    #contactFormMessageGroup {
-      height: 175px;
-    }
-
-    #contactFormContactOptions {
-      & > div:nth-of-type(2) {
-        @include verticalAlign(middle);
-      }
-    }
-  }
-}
-
-#resourceContainer {
-  width: 30%;
-  margin: auto;
-  text-align: center;
-
-  ul {
-    text-align: left;
-
-    a {
-      color: rgba(0, 0, 0, 0.84);
-      text-decoration: underline;
-      font-size: 22px;
-    }
-  }
-
-  .resourceList {
-    // TODO: replace with `width: max-content` once edge starts supporing it
-    display: table;
-    margin: auto;
   }
 }
