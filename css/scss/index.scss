@@ -103,6 +103,76 @@ footer {
   }
 }
 
+.collapsibleListContainer {
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: flex-start;
+  padding: 15px;
+  width: 40%;
+  background-color: $color2;
+  color: white;
+  border-radius: 15px;
+
+  .collapsibleListHeader {
+    min-height: 30px;
+    padding-left: 15px;
+    padding-right: 15px;
+    cursor: pointer;
+    user-select: none;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .collapsibleListItems {
+    text-align: center;
+    overflow-y: hidden;
+    max-height: 0;
+    height: fit-content;
+    transition-property: max-height;
+    transition-duration: .5s;
+    margin-bottom: 15px;
+
+    p {
+      margin-bottom: 0;
+      font-weight: bold;
+    }
+
+    ul {
+      text-align: left;
+      margin: auto;
+    }
+  }
+
+  .fa-chevron-down {
+    animation-name: spinBack;
+    animation-duration: 250ms;
+    animation-iteration-count: 1;
+    animation-timing-function: linear;
+    animation-fill-mode: forwards;
+  }
+
+  .collapsibleList.selected {
+    .fa-chevron-down {
+      animation-name: spin;
+      animation-duration: 250ms;
+      animation-iteration-count: 1;
+      animation-timing-function: linear;
+      animation-fill-mode: forwards;
+    }
+
+    .collapsibleListItems {
+      max-height: 1000px;
+      transition-property: max-height;
+      transition-duration: 1s;
+	    transition-timing-function: ease;
+    }
+  }
+}
+
 .cardWrapper {
   width: 100%;
   padding-top: 25px;
