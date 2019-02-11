@@ -159,6 +159,17 @@ footer {
     height: fit-content;
     transition-property: max-height;
     transition-duration: .5s;
+    margin-bottom: 15px;
+
+    p {
+      margin-bottom: 0;
+      font-weight: bold;
+    }
+
+    ul {
+      text-align: left;
+      margin: auto;
+    }
   }
 
   .fa-chevron-down {
@@ -179,7 +190,7 @@ footer {
     }
 
     .collapsibleListItems {
-      max-height: 500px;
+      max-height: 1000px;
       transition-property: max-height;
       transition-duration: 1s;
 	    transition-timing-function: ease;
